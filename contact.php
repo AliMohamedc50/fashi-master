@@ -51,7 +51,7 @@ include 'design/header.php'
                             </div>
                             <div class="ci-text">
                                 <span>Address:</span>
-                                <p>60-49 Road 11378 New York</p>
+                                <p><?=$roe_info['site_address']?></p>
                             </div>
                         </div>
                         <div class="cw-item">
@@ -60,7 +60,7 @@ include 'design/header.php'
                             </div>
                             <div class="ci-text">
                                 <span>Phone:</span>
-                                <p>+65 11.188.888</p>
+                                <p>+<?=$roe_info['site_phone']?></p>
                             </div>
                         </div>
                         <div class="cw-item">
@@ -69,7 +69,7 @@ include 'design/header.php'
                             </div>
                             <div class="ci-text">
                                 <span>Email:</span>
-                                <p>hellocolorlib@gmail.com</p>
+                                <p><?=$roe_info['site_email']?></p>
                             </div>
                         </div>
                     </div>
@@ -79,20 +79,27 @@ include 'design/header.php'
                         <div class="leave-comment">
                             <h4>Leave A Comment</h4>
                             <p>Our staff will call back later and answer your questions.</p>
-                            <form action="#" class="comment-form">
+                            <form action="./logec_php/user/send_message.php" method="post" class="comment-form">
                                 <div class="row">
                                     <div class="col-lg-6">
-                                        <input type="text" placeholder="Your name">
+                                        <input type="text" name="name" placeholder="Your name">
                                     </div>
                                     <div class="col-lg-6">
-                                        <input type="text" placeholder="Your email">
+                                        <input type="text" name="email" placeholder="Your email">
                                     </div>
                                     <div class="col-lg-12">
-                                        <textarea placeholder="Your message"></textarea>
-                                        <button type="submit" class="site-btn">Send message</button>
+                                        <textarea name="message" placeholder="Your message"></textarea>
+                                        <!-- <button type="submit" class="site-btn">Send message</button> -->
                                     </div>
                                 </div>
+                                <input type="submit" name="send_message" class="site-btn" value="Send message">
                             </form>
+                            <ol reversed type="A" start="3">
+                                <li>i</li>
+                                <li>i</li>
+                                <li>i</li>
+                                <!-- <li></li> -->
+                            </ol>
                         </div>
                     </div>
                 </div>

@@ -11,9 +11,8 @@ if (isset($_POST['sign_in'])) {
     $row_user = $result_user->fetch_assoc();
     $count = $result_user->num_rows;
     $id = $row_user['id'];
-
-    echo "ffffff";
-    if($coun > 0) {
+    if($count > 0) {
+        $_SESSION['id'] = $id;
         header("Location:../../index.php");
     }else {
         header("Location:../../login.php");

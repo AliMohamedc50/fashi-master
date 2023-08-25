@@ -45,7 +45,6 @@ include 'design/head.php';
                             </div>
                             <!-- <button type="submit" class="site-btn login-btn">Sign In</button> -->
                             <input type="submit" class="site-btn login-btn" name="sign_in" value="Sign In">
-
                             </form>
                         <div class="switch-login">
                             <a href="./register.html" class="or-login">Or Create An Account</a>

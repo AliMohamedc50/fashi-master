@@ -24,6 +24,7 @@
 			<li ><a href="admins.php"><em class="fa fa-users">&nbsp;</em> admins</a></li>
 			<li ><a href="categorie.php"><em class="fa fa-edit">&nbsp;</em> Categories</a></li>
 			<li ><a href="product.php"><em >&nbsp;</em> Product</a></li>
+			<li ><a href="messages.php"><em >&nbsp;</em>Messages</a></li>
 			<!-- <li><a href="widgets.php"><em class="fa fa-calendar">&nbsp;</em> Widgets</a></li> -->
 			<li><a href="charts.php"><em class="fa fa-bar-chart">&nbsp;</em> Charts</a></li>
 			<li><a href="elements.php"><em class="fa fa-toggle-off">&nbsp;</em> UI Elements</a></li>

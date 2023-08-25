@@ -1,4 +1,14 @@
 
+
+
+<?php
+require 'logec_php/connection.php';
+$select_info = "SELECT * FROM site_information";
+$result_info = $conn->query($select_info);
+$roe_info = $result_info->fetch_assoc();
+
+?>
+
 <body>
     <!-- Page Preloder -->
     <div id="preloder">
@@ -12,11 +22,11 @@
                 <div class="ht-left">
                     <div class="mail-service">
                         <i class=" fa fa-envelope"></i>
-                        hello.colorlib@gmail.com
+                        <?=$roe_info['site_email']?>
                     </div>
                     <div class="phone-service">
                         <i class=" fa fa-phone"></i>
-                        +65 11.188.888
+                        <?=$roe_info['site_phone']?>
                     </div>
                 </div>
                 <div class="ht-right">
