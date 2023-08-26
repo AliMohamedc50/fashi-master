@@ -79,7 +79,7 @@ include 'design/header.php'
                         <div class="leave-comment">
                             <h4>Leave A Comment</h4>
                             <p>Our staff will call back later and answer your questions.</p>
-                            <form action="./logec_php/user/send_message.php" method="post" class="comment-form">
+                            <form class="comment-form">
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <input type="text" name="name" placeholder="Your name">
@@ -92,14 +92,9 @@ include 'design/header.php'
                                         <!-- <button type="submit" class="site-btn">Send message</button> -->
                                     </div>
                                 </div>
-                                <input type="submit" name="send_message" class="site-btn" value="Send message">
+                                <!-- <input type="submit" name="send_message" class="site-btn" value="Send message"> -->
+                                <a class="site-btn send_message" >Send message</a>
                             </form>
-                            <ol reversed type="A" start="3">
-                                <li>i</li>
-                                <li>i</li>
-                                <li>i</li>
-                                <!-- <li></li> -->
-                            </ol>
                         </div>
                     </div>
                 </div>
