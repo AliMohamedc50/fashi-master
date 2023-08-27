@@ -78,21 +78,19 @@ include 'design/header.php'
                     <div class="contact-form">
                         <div class="leave-comment">
                             <h4>Leave A Comment</h4>
-                            <p>Our staff will call back later and answer your questions.</p>
+                            <p id="output" >Our staff will call back later and answer your questions.</p>
                             <form class="comment-form">
                                 <div class="row">
                                     <div class="col-lg-6">
-                                        <input type="text" name="name" placeholder="Your name">
+                                        <input type="text" id="name" name="name" placeholder="Your name">
                                     </div>
                                     <div class="col-lg-6">
-                                        <input type="text" name="email" placeholder="Your email">
+                                        <input type="email" id="email" name="email" placeholder="Your email">
                                     </div>
                                     <div class="col-lg-12">
-                                        <textarea name="message" placeholder="Your message"></textarea>
-                                        <!-- <button type="submit" class="site-btn">Send message</button> -->
+                                        <textarea id="message" name="message" placeholder="Your message"></textarea>
                                     </div>
                                 </div>
-                                <!-- <input type="submit" name="send_message" class="site-btn" value="Send message"> -->
                                 <a class="site-btn send_message" >Send message</a>
                             </form>
                         </div>

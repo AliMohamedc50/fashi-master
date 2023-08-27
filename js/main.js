@@ -246,4 +246,35 @@
 		}
 		$button.parent().find('input').val(newVal);
 	});
+    $('.send_message').click(function() {
+        // alert('send message');
+        // console.log("dddddddddddddddddd")
+        var name = $(this).parent().parent().find('#name').val();
+        var email = $(this).parent().parent().find('#email').val();
+        var message = $(this).parent().parent().find('#message').val();
+        // console.log(name + ' ' + email + ' ' + message);
+        if(!name) { 
+            $("#name").attr("placeholder", "Please enter a namerrrrrrrrrrrrrrrrrr")
+            $("#name").addClass("place")
+        }if (!email) { 
+            $("#email").attr("placeholder", "Please enter a email")
+            $("#email").addClass("place")
+        } if (!message) { 
+            $("#message").attr("placeholder", "Please enter a message")
+            $("#message").addClass("place")
+        }else if (name && email && message) {
+            $.post('logec_php/user/send_message.php', {name: name, email: email, message: message}, function() {
+                $("#name").val("")
+                $("#email").val("")
+                $("#message").val("")
+                // $(this).val("The message has been sent successfully")
+                // $('.send_message').addClass("message_done")
+                // $('.send_message').html("doneeeeeeeeeeeeeee")
+            })
+        }
+    })
 })(jQuery);
+
+
+
+// The message has been sent successfully

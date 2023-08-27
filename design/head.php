@@ -22,4 +22,21 @@
     <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <style>
+        .place::placeholder {
+            color: red;
+        }
+        .message_done {
+            background-color: #4caf50;
+            border-color: #4caf50;
+        }
+        /* .message_done::after{
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 3px;
+            top: 0;
+            left: 0;
+        } */
+    </style>
 </head>
