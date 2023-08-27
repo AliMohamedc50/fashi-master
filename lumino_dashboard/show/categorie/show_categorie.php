@@ -34,10 +34,6 @@ foreach ($result_all_categorie as $key) {
 	$id_categorie = $key['id'];
 	$user_categorie = $key['c_name'];
 	$status = $key['c_status']
-	// $pass_categorie = $key['a_password'];
-	// $email_categorie = $key['a_email'];
-	// $role = $key['role'];
-	// $img = $key['img'];
 
 
 ?>
