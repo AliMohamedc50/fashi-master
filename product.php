@@ -1,6 +1,12 @@
+
 <?php
 include 'design/head.php';
-include 'design/header.php'
+include 'design/header.php';
+require 'logec_php/connection.php';
+$id = $_GET["id"];
+$select_all_prod = "SELECT * FROM product  WHERE id = $id";
+$resulte_all_prod = $conn->query($select_all_prod);
+$row_prod = $resulte_all_prod->fetch_assoc();
 ?>
 
     <!-- Breadcrumb Section Begin -->
@@ -150,29 +156,34 @@ include 'design/header.php'
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="product-pic-zoom">
-                                <img class="product-big-img" src="img/product-single/product-1.jpg" alt="">
+                                <img class="product-big-img" src="img/products/<?=$row_prod['p_image']?>" alt="">
                                 <div class="zoom-icon">
                                     <i class="fa fa-search-plus"></i>
                                 </div>
                             </div>
                             <div class="product-thumbs">
                                 <div class="product-thumbs-track ps-slider owl-carousel">
-                                    <div class="pt active" data-imgbigurl="img/product-single/product-1.jpg"><img
-                                            src="img/product-single/product-1.jpg" alt=""></div>
-                                    <div class="pt" data-imgbigurl="img/product-single/product-2.jpg"><img
-                                            src="img/product-single/product-2.jpg" alt=""></div>
-                                    <div class="pt" data-imgbigurl="img/product-single/product-3.jpg"><img
-                                            src="img/product-single/product-3.jpg" alt=""></div>
-                                    <div class="pt" data-imgbigurl="img/product-single/product-3.jpg"><img
-                                            src="img/product-single/product-3.jpg" alt=""></div>
+                                    <div class="pt active" data-imgbigurl="img/products/<?=$row_prod['p_image']?>"><img
+                                            src="img/products/<?=$row_prod['p_image']?>" alt=""></div>
+                                    <div class="pt" data-imgbigurl="img/products/<?=$row_prod['p_image']?>"><img
+                                            src="img/products/<?=$row_prod['p_image']?>" alt=""></div>
+                                    <div class="pt" data-imgbigurl="img/products/<?=$row_prod['p_image']?>"><img
+                                            src="img/products/<?=$row_prod['p_image']?>" alt=""></div>
+                                    <div class="pt" data-imgbigurl="img/products/<?=$row_prod['p_image']?>"><img
+                                            src="img/products/<?=$row_prod['p_image']?>" alt=""></div>
                                 </div>
                             </div>
                         </div>
+
+
+
+
+
                         <div class="col-lg-6">
                             <div class="product-details">
                                 <div class="pd-title">
                                     <span>oranges</span>
-                                    <h3>Pure Pineapple</h3>
+                                    <h3><?=$row_prod['p_name']?></h3>
                                     <a href="#" class="heart-icon"><i class="icon_heart_alt"></i></a>
                                 </div>
                                 <div class="pd-rating">
@@ -186,7 +197,7 @@ include 'design/header.php'
                                 <div class="pd-desc">
                                     <p>Lorem ipsum dolor sit amet, consectetur ing elit, sed do eiusmod tempor sum dolor
                                         sit amet, consectetur adipisicing elit, sed do mod tempor</p>
-                                    <h4>$495.00 <span>629.99</span></h4>
+                                    <h4><?=$row_prod['p_discount']?> <span><?=$row_prod['p_price']?></span></h4>
                                 </div>
                                 <div class="pd-color">
                                     <h6>Color</h6>

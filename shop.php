@@ -25,9 +25,28 @@ include 'design/header.php'
                     <div class="filter-widget">
                         <h4 class="fw-title">Categories</h4>
                         <ul class="filter-catagories">
-                            <li><a href="#">Men</a></li>
-                            <li><a href="#">Women</a></li>
-                            <li><a href="#">Kids</a></li>
+<?php
+require 'logec_php/connection.php';
+// $select_all_prod = "SELECT * FROM product ORDER BY p_rate DESC LIMIT 2";
+// $resulte_all_prod = $conn->query($select_all_prod);
+// $row_prod = $resulte_all_prod->fetch_assoc();
+
+$select_categorie = "SELECT * FROM categories";
+$resulte_categorie = $conn->query($select_categorie);
+foreach ($resulte_categorie as $key) {
+    
+    // $id_categorie = $key['id_categorie']; 
+    
+    // $row_categorie = $resulte_categorie->fetch_assoc();
+?>
+
+                            <li><a href="#"><?=$key['c_name']?></a></li>
+
+
+<?php
+}
+?>
+
                         </ul>
                     </div>
                     <div class="filter-widget">
@@ -167,7 +186,7 @@ include 'design/header.php'
 
 <?php
 require 'logec_php/connection.php';
-$select_all_prod = "SELECT * FROM product ";
+$select_all_prod = "SELECT * FROM product ORDER BY id DESC LIMIT 4";
 $resulte_all_prod = $conn->query($select_all_prod);
 // $row_prod = $resulte_all_prod->fetch_assoc();
 foreach ($resulte_all_prod as $key) {
@@ -177,44 +196,36 @@ foreach ($resulte_all_prod as $key) {
     $select_categorie = "SELECT * FROM categories WHERE id = $id_categorie";
     $resulte_categorie = $conn->query($select_categorie);
     $row_categorie = $resulte_categorie->fetch_assoc();
-
-
-
-
-    ?>
-
-
-                            <div class="col-lg-4 col-sm-6">
-                                <div class="product-item">
-                                    <div class="pi-pic">
-                                        <img src="img/products/<?=$key['p_image']?>" alt="">
-                                        <div class="sale pp-sale">Sale</div>
-                                        <div class="icon">
-                                            <i class="icon_heart_alt"></i>
-                                        </div>
-                                        <ul>
-                                            <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                            <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                            <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="pi-text">
-                                        <div class="catagory-name"><?=$row_categorie['c_name']?></div>
-                                        <a href="#">
-                                            <h5><?=$key['p_name']?></h5>
-                                        </a>
-                                        <div class="product-price">
-                                        <?=$key['p_discount']?>
-                                            <span><?=$key['p_price']?></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
+?>
+            <div class="col-lg-4 col-sm-6">
+                <div class="product-item">
+                    <div class="pi-pic">
+                        <img src="img/products/<?=$key['p_image']?>" alt="">
+                        <div class="sale pp-sale">Sale</div>
+                        <div class="icon">
+                            <i class="icon_heart_alt"></i>
+                        </div>
+                        <ul>
+                            <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
+                            <li class="quick-view"><a href="#">+ Quick View</a></li>
+                            <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="pi-text">
+                        <div class="catagory-name"><?=$row_categorie['c_name']?></div>
+                        <a href="#">
+                            <h5><?=$key['p_name']?></h5>
+                        </a>
+                        <div class="product-price">
+                        <?=$key['p_discount']?>
+                            <span><?=$key['p_price']?></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 <?php
 }
 ?>
-
 
                         </div>
                     </div>
