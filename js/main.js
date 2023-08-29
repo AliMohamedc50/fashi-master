@@ -272,6 +272,13 @@
                 // $('.send_message').html("doneeeeeeeeeeeeeee")
             })
         }
+    });
+    $('.add_card').click(function (){
+        var id = $(this).attr('data-id')
+        var price = $(this).attr('data-price')
+        $.post("logec_php/product/add_card.php", {id:id, price:price}, function() {
+
+        })
     })
 })(jQuery);
 

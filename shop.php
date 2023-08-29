@@ -188,7 +188,6 @@ foreach ($resulte_categorie as $key) {
 require 'logec_php/connection.php';
 $select_all_prod = "SELECT * FROM product ORDER BY id DESC LIMIT 4";
 $resulte_all_prod = $conn->query($select_all_prod);
-// $row_prod = $resulte_all_prod->fetch_assoc();
 foreach ($resulte_all_prod as $key) {
     
     $id_categorie = $key['id_categorie']; 
@@ -206,7 +205,7 @@ foreach ($resulte_all_prod as $key) {
                             <i class="icon_heart_alt"></i>
                         </div>
                         <ul>
-                            <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
+                            <li class="w-icon active"><a data-price="<?=$key['p_discount']?>" data-id="<?=$key['id']?>" class="add_card" ><i class="icon_bag_alt"></i></a></li>
                             <li class="quick-view"><a href="#">+ Quick View</a></li>
                             <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
                         </ul>
