@@ -2,6 +2,7 @@
 
 
 <?php
+session_start();
 require 'logec_php/connection.php';
 $select_info = "SELECT * FROM site_information";
 $result_info = $conn->query($select_info);
@@ -30,7 +31,7 @@ $roe_info = $result_info->fetch_assoc();
                     </div>
                 </div>
                 <div class="ht-right">
-                    <a href="#" class="login-panel"><i class="fa fa-user"></i>Login</a>
+                    <a href="#" class="login-panel"><i class="fa fa-user"></i><?=$_SESSION['user_names']?></a>
                     <div class="lan-selector">
                         <select class="language_drop" name="countries" id="countries" style="width:300px;">
                             <option value='yt' data-image="img/flag-1.jpg" data-imagecss="flag yt"
@@ -81,31 +82,32 @@ $roe_info = $result_info->fetch_assoc();
                                 <div class="cart-hover">
                                     <div class="select-items">
                                         <table>
-                                            <tbody>
+                                            <tbody id="cardt">
+                                                <?php 
+$id_user_to_card = $_SESSION['id'] ;
+// $select_card_2 = "SELECT * FROM card ORDER BY id_user DESC LIMIT 2 WHERE id = $id_user_to_card";
+$select_card_2 = "SELECT * FROM card WHERE id_user = $id_user_to_card ORDER BY id DESC LIMIT 2";
+// $select_card_2 = "SELECT * FROM card WHERE id_user = $id_user_to_card ";
+$result = mysqli_query($conn, $select_card_2);
+
+foreach ( $result as $key) {
+    
+    ?>
                                                 <tr>
-                                                    <td class="si-pic"><img src="img/select-product-1.jpg" alt=""></td>
+                                                    <td class="si-pic" style="width: 80px;"><img src="img/products/<?=$key['c_image']?>" alt=""></td>
                                                     <td class="si-text">
                                                         <div class="product-selected">
-                                                            <p>$60.00 x 1</p>
-                                                            <h6>Kabino Bedside Table</h6>
+                                                            <p><?php echo $key['c_price'] . "x" . $key['count'] ?></p>
+                                                            <h6><?=$key['c_name']?></h6>
                                                         </div>
                                                     </td>
                                                     <td class="si-close">
                                                         <i class="ti-close"></i>
                                                     </td>
                                                 </tr>
-                                                <tr>
-                                                    <td class="si-pic"><img src="img/select-product-2.jpg" alt=""></td>
-                                                    <td class="si-text">
-                                                        <div class="product-selected">
-                                                            <p>$60.00 x 1</p>
-                                                            <h6>Kabino Bedside Table</h6>
-                                                        </div>
-                                                    </td>
-                                                    <td class="si-close">
-                                                        <i class="ti-close"></i>
-                                                    </td>
-                                                </tr>
+<?php
+}
+?>
                                             </tbody>
                                         </table>
                                     </div>
@@ -131,7 +133,7 @@ $roe_info = $result_info->fetch_assoc();
                     <div class="depart-btn">
                         <i class="ti-menu"></i>
                         <span>All departments</span>
-                        <ul class="depart-hover">
+                        <ul class="depart-hover">  
                             <li class="active"><a href="#">Women’s Clothing</a></li>
                             <li><a href="#">Men’s Clothing</a></li>
                             <li><a href="#">Underwear</a></li>

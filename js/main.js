@@ -273,13 +273,18 @@
             })
         }
     });
-    $('.add_card').click(function (){
-        var id = $(this).attr('data-id')
-        var price = $(this).attr('data-price')
-        $.post("logec_php/product/add_card.php", {id:id, price:price}, function() {
+    $('.add_card').click(function () {
+        var id = $(this).attr('data-id');
+        var price = $(this).attr('data-price');
+        $.post("logec_php/product/add_card.php", {id: id, price: price}, function (data) {
+            // var existingData = $('#cardt').html();
+            $('#cardt').html(" ");
+            // $('#cardt').html(existingData + data);
+            $('#cardt').html(data);
+            alert("Card added successfully!");
+        });
+    });
 
-        })
-    })
 })(jQuery);
 
 

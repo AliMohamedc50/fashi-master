@@ -128,8 +128,8 @@ foreach ($resulte_all_prod as $key) {
                                 <h5><?=$key['p_name']?></h5>
                             </a>
                             <div class="product-price">
-                            <?=$key['p_discount']?>
-                                <span><?=$key['p_price']?></span>
+                            $<?=$key['p_discount']?>
+                                $<span><?=$key['p_price']?></span>
                             </div>
                         </div>
                     </div>
