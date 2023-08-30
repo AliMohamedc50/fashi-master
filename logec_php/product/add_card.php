@@ -33,10 +33,6 @@ if ($count_row > 0) {
 
 // $id_user = $_SESSION["id"];
 
-
-
-    
-    
     $id_user_to_card = $_SESSION["id"];
     $select_card_2 = "SELECT * FROM card WHERE id_user = $id_user_to_card ORDER BY id DESC LIMIT 2";
     $result = mysqli_query($conn, $select_card_2);
@@ -58,6 +54,23 @@ if ($count_row > 0) {
     <?php
 }
 
+
+
+// Retrieve total prices from all rows
+$select_total_price = "SELECT total_price FROM card WHERE id_user = $id_user_to_card";
+$result_total_price = $conn->query($select_total_price);
+$total_prices = array();
+
+while ($row_total_price = $result_total_price->fetch_assoc()) {
+    $total_prices[] = $row_total_price['total_price'];
+}
+
+// Calculate the overall total price
+$overall_total_price = array_sum($total_prices);
+
+// Output the overall total price
+echo '<tr color: #e7ab3c;" ><td colspan="3" >Total Price: $'.$overall_total_price.'</td></tr>';
 ?>
+
 
 

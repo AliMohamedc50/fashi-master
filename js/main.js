@@ -277,16 +277,20 @@
         var id = $(this).attr('data-id');
         var price = $(this).attr('data-price');
         $.post("logec_php/product/add_card.php", {id: id, price: price}, function (data) {
-            // var existingData = $('#cardt').html();
             $('#cardt').html(" ");
-            // $('#cardt').html(existingData + data);
             $('#cardt').html(data);
-            alert("Card added successfully!");
+            alert("Card added successfully!" + data);
         });
+    });
+    var total_price = $.post("logec_php/product/add_card.php", {
+        id: id,
+        price: price,
+        "overall_total_price": overall_total_price
+    }, function (data) {
+        $('#total_price_value').text(total_price);
     });
 
 })(jQuery);
 
 
 
-// The message has been sent successfully

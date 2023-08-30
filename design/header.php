@@ -8,6 +8,16 @@ $select_info = "SELECT * FROM site_information";
 $result_info = $conn->query($select_info);
 $roe_info = $result_info->fetch_assoc();
 
+$id_user_to_card = $_SESSION['id'] ;
+
+
+// $select_totale_price = "SELECT total_price FROM card WHERE id_user = $id_user_to_card";
+// $resuls_total_price = $conn->query($select_totale_price );
+
+// $result = mysqli_query($conn, $select_totale_price);
+
+
+
 ?>
 
 <body>
@@ -35,9 +45,9 @@ $roe_info = $result_info->fetch_assoc();
                     <div class="lan-selector">
                         <select class="language_drop" name="countries" id="countries" style="width:300px;">
                             <option value='yt' data-image="img/flag-1.jpg" data-imagecss="flag yt"
-                                data-title="English">English</option>
+                            data-title="English">English</option>
                             <option value='yu' data-image="img/flag-2.jpg" data-imagecss="flag yu"
-                                data-title="Bangladesh">German </option>
+                            data-title="Bangladesh">German </option>
                         </select>
                     </div>
                     <div class="top-social">
@@ -71,25 +81,27 @@ $roe_info = $result_info->fetch_assoc();
                     <div class="col-lg-3 text-right col-md-3">
                         <ul class="nav-right">
                             <li class="heart-icon"><a href="#">
-                                    <i class="icon_heart_alt"></i>
+                                <i class="icon_heart_alt"></i>
                                     <span>1</span>
                                 </a>
                             </li>
                             <li class="cart-icon"><a href="#">
-                                    <i class="icon_bag_alt"></i>
-                                    <span>3</span>
+                                <i class="icon_bag_alt"></i>
+                                <span>3</span>
                                 </a>
                                 <div class="cart-hover">
                                     <div class="select-items">
                                         <table>
                                             <tbody id="cardt">
                                                 <?php 
-$id_user_to_card = $_SESSION['id'] ;
+// $id_user_to_card = $_SESSION['id'] ;
 // $select_card_2 = "SELECT * FROM card ORDER BY id_user DESC LIMIT 2 WHERE id = $id_user_to_card";
-$select_card_2 = "SELECT * FROM card WHERE id_user = $id_user_to_card ORDER BY id DESC LIMIT 2";
+// $select_card_2 = "SELECT * FROM card WHERE id_user = $id_user_to_card ORDER BY id DESC LIMIT 2";
 // $select_card_2 = "SELECT * FROM card WHERE id_user = $id_user_to_card ";
-$result = mysqli_query($conn, $select_card_2);
+// $result = mysqli_query($conn, $select_card_2);
 
+$select_card_2 = "SELECT * FROM card WHERE id_user = $id_user_to_card ORDER BY id DESC LIMIT 2";
+$result = mysqli_query($conn, $select_card_2);
 foreach ( $result as $key) {
     
     ?>
@@ -111,10 +123,11 @@ foreach ( $result as $key) {
                                             </tbody>
                                         </table>
                                     </div>
-                                    <div class="select-total">
-                                        <span>total:</span>
-                                        <h5>$120.00</h5>
-                                    </div>
+                                    <!-- <div class="select-total">
+                                        <span id="total_price" >total:</span>
+
+                                        <h5 id="total_price">cccccccc</h5>
+                                    </div> -->
                                     <div class="select-button">
                                         <a href="#" class="primary-btn view-card">VIEW CARD</a>
                                         <a href="#" class="primary-btn checkout-btn">CHECK OUT</a>
